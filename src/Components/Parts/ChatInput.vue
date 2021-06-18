@@ -54,27 +54,25 @@
     display: flex
 
 .suggestions
-    font-size: 16px
-    font-weight: 500
+    font-size: 14px
     width: 100%
-    box-sizing: border-box
     border: none
-    padding: 5px 5px
+    padding: 2px 2px
     color: var(--text)
     border-radius: 40px
-    flex: 1 0 0
-    background-color: var(--element-background)
+    
+    background-color: transparent
 
     &:focus
         background-color: transparent
 
 .input
     font-size: 16px
-    font-weight: 500
+    
     width: 100%
     box-sizing: border-box
     border: none
-    padding: 10px 10px
+    padding: 10px 12px
     color: var(--text)
     border-radius: 40px
     flex: 1 0 0

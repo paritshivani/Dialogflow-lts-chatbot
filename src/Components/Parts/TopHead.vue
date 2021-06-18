@@ -3,8 +3,8 @@
         <img v-if="app.avatarUri" class="app-icon" :alt="app.displayName" :src="app.avatarUri">
         <img v-else class="app-icon" src="https://console.dialogflow.com/api-client/assets/img/logo-short.png" :alt="app.displayName">
         <div class="app-info">
-            <div class="app-name">{{app.displayName}}</div>
-            <div class="app-poweredby">Built with <a target="_blank" rel="noopener noreferrer" href="https://dialogflow.cloud.ushakov.co" aria-hidden="true">Dialogflow Gateway</a></div>
+            <div class="">{{app.displayName}}</div>
+            <div class="app-poweredby">Lets Talk लैगिंगतेवर Sexuality बोलूया</div>
         </div>
         <slot />
     </header>

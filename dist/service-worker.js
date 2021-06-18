@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.472b354790e852ed00e4c33c387ba129.js"
+  "precache-manifest.21aa8e01bda98e41baff887d59b7dbd9.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "dialogflow-web-v2"});

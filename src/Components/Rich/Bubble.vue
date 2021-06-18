@@ -1,5 +1,7 @@
 <template>
-    <div class="bubble" tabindex="0" :class="{'me': me, 'loading': loading}">{{text}}</div>
+    <div class="bubble" tabindex="0" :class="{'me': me, 'loading': loading}">
+        <truncate clamp="Show more..." :length="500" less="Show Less" type="html" :text= "text"></truncate>
+        </div>
 </template>
 
 <style lang="sass" scoped>
@@ -53,8 +55,13 @@
 </style>
 
 <script>
+import truncate from 'vue-truncate-collapsed';
+
 export default {
     name: 'Bubble',
+    components: {
+        truncate
+    },
     props: {
         text: {
             type: String,

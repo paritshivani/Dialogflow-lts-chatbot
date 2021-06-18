@@ -15,15 +15,17 @@
 
 .suggestion
     @include reset
-    display: inline-block
-    padding: 8px 12px
+    padding: 8px 8px
     border-radius: 40px
     border: 1px solid var(--border)
     color: var(--text)
     cursor: pointer
-    margin-right: 5px
-    font-weight: 500
-    margin-bottom: 12px
+    margin-right: 6px
+    font-weight: 250
+    margin-bottom: 6px
+    background-color: rgb(220,220,220)
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149)
+    opacity: 1
 
 .suggestion[href]
     color: var(--accent)

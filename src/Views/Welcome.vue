@@ -11,14 +11,15 @@
         <p class="app-description">{{app.description}}</p>
 
         <!-- Language picker, if your Agent supports more than one language -->
-        <div v-if="app.supportedLanguageCodes && app.supportedLanguageCodes.length > 0" class="language-picker">
+        <!-- <div v-if="app.supportedLanguageCodes && app.supportedLanguageCodes.length > 0" class="language-picker">
             <select v-model="sel_lang">
                 <option :value="app.defaultLanguageCode">{{app.defaultLanguageCode | toLang}}</option>
                 <option v-for="language in app.supportedLanguageCodes" :key="language" :value="language">{{language | toLang}}</option>
             </select>
             <i aria-hidden="true" class="material-icons">arrow_drop_down</i>
-        </div>
+        </div> -->
     </div>
+  
 </template>
 
 <style lang="sass" scoped>
@@ -26,25 +27,24 @@
 
 .overlay
     text-align: center
-    padding-top: 25px
-
+    
 .app-icon
-    width: 120px
-    height: 120px
+    width: 100px
+    height: 100px
     border-radius: 16px
     object-fit: cover
     background-color: var(--image-background)
 
 .app-title
     font-weight: 500
-    font-size: 24px
-    margin-top: 30px
+    font-size: 20px
     color: var(--text)
     line-height: 20px
 
 .app-description
     font-size: 16px
     color: var(--text-secondary)
+
 
 .language-picker
     display: inline-flex
@@ -100,13 +100,12 @@ export default {
     },
     /* Set default language on load (or fallback) */
     created(){
-        if (this.app && this.app.defaultLanguageCode){
-            this.sel_lang = this.app.defaultLanguageCode
-        }
-
-        else {
+        // if (this.app && this.app.defaultLanguageCode){
+        //     this.sel_lang = this.app.defaultLanguageCode
+        // }
+        // else {
             this.sel_lang = this.config.fallback_lang
-        }
+        // }
     }
 }
 </script>

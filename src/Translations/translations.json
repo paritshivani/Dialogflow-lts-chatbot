@@ -2,10 +2,18 @@
     "en": {
         "muteTitle": "Mute",
         "unMuteTitle": "Unmute",
-        "inputTitle": "Message",
+        "inputTitle": "Ask here...",
         "sendTitle": "Send",
         "microphoneTitle": "Voice Input",
         "recognitionUnavailable": "Speech recognition is not available"
+    },
+    "mr": {
+        "muteTitle": "नि: शब्द करा",
+        "unMuteTitle": "सशब्द करा",
+        "inputTitle": "येथे विचारा ...",
+        "sendTitle": "पाठवा",
+        "microphoneTitle": "व्हॉइस इनपुट",
+        "recognitionUnavailable": "भाषण ओळख उपलब्ध नाही"
     },
     "ru": {
         "muteTitle": "Звук",

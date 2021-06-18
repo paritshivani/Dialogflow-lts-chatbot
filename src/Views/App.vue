@@ -3,18 +3,17 @@
         <!-- TopHead is the header with the information about the app -->
         <TopHead v-if="app && messages.length > 0" :app="app">
             <!-- Audio toggle (on the top right corner), used to toggle the audio output, default mode is defined in the settings -->
-            <button
+            <button v-if="config.speaker"
                 class="audio-toggle"
                 :title="muted ? (translations[lang()] && translations[lang()].unMuteTitle) || translations[config.fallback_lang].unMuteTitle : (translations[lang()] && translations[lang()].muteTitle) || translations[config.fallback_lang].muteTitle"
-                :aria-label="muted ? (translations[lang()] && translations[lang()].unMuteTitle) || translations[config.fallback_lang].unMuteTitle : (translations[lang()] && translations[lang()].muteTitle) || translations[config.fallback_lang].muteTitle"
-                @click="muted = !muted">
+                 :aria-label="muted ? (translations[lang()] && translations[lang()].unMuteTitle) || translations[config.fallback_lang].unMuteTitle : (translations[lang()] && translations[lang()].muteTitle) || translations[config.fallback_lang].muteTitle"
+                @click="muted = !muted"> 
                 <i aria-hidden="true" class="material-icons">{{muted ? 'volume_off': 'volume_up'}}</i>
             </button>
         </TopHead>
         <section class="container chat-container">
             <!-- Error component is for displaying errors -->
             <Error v-if="error" :error="error" />
-
             <!-- Welcome component is for onboarding experience and language picker -->
             <Welcome v-if="app && messages.length == 0" :app="app" />
 
@@ -300,10 +299,21 @@
                     <Bubble loading aria-hidden="true" />
                 </div>
             </section>
+            <section class="InitialMsg">
+               <BubbleWrapper v-if="app && this.config.start_message&& messages.length == 0" :app="app">
+               <Bubble v-if="this.config.fallback_lang=='en'" :text="this.config.start_message[0]" me/>
+                <Bubble v-if="this.config.fallback_lang === 'mr'" :text="this.config.start_message[1]" me/>
+               </BubbleWrapper>
+               <BubbleWrapper v-if="app && this.config.first_question && messages.length == 0" :app="app">
+               <Bubble  v-if="this.config.fallback_lang=='en'" :text=" this.config.first_question[0]" me/>
+               <Bubble  v-if="this.config.fallback_lang=='mr'" :text=" this.config.first_question[1]" me/>
+               </BubbleWrapper>
+            </section>
         </section>
 
         <!-- ChatInput is made for submitting queries and displaying suggestions -->
         <ChatInput ref="input" @submit="send">
+               
             <!-- Suggestion chips
                 https://developers.google.com/actions/assistant/responses#suggestion_chips
                 https://cloud.google.com/dialogflow/docs/reference/rest/v2beta1/projects.agent.intents#QuickReplies
@@ -340,17 +350,21 @@ body
     background-color: var(--background)
 
 .container
-    max-width: 500px
+    max-width: 90%
     margin-left: auto
     margin-right: auto
     padding: 12px
     position: relative
+
+.InitialMsg
+    padding: 10px
 </style>
 
 <style lang="sass" scoped>
 .chat-container
-    padding-top: 80px
-    padding-bottom: 125px
+    padding-top: 60px
+    padding-bottom: 180px
+    background-color: white
 </style>
 
 <script>
